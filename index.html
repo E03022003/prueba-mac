@@ -15,85 +15,75 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </head>
 <body>
-    <div class="bg-video">
-        <video src="media/video/prueba_video.mp4" type="video/mp4" loop autoplay muted></video>
+  <div class="container my-5">
+    <h2 class="text-center mb-4">Reserva tu mesa</h2>
+    <form id="reservation-form">
+      <!-- Tipo de reserva -->
+      <div class="mb-3">
+        <label for="reservation-type" class="form-label">Tipo de reserva</label>
+        <select id="reservation-type" class="form-select">
+          <option value="general">General</option>
+          <option value="vip">VIP</option>
+        </select>
       </div>
   
-      <header>
-        <div class="navContainer">
-          <nav id="menu">
-            <div class="logo">
-              <a href="#"><img id="logo-light" src="media/img/logo-blanco.png" alt=""></a>
-              <a href="#"><img id="logo-dark" src="media/img/logo-marron.png" alt="" style="display: none;"></a>
-            </div>
+      <!-- Ubicación -->
+      <div class="mb-3">
+        <label for="reservation-location" class="form-label">Ubicación</label>
+        <select id="reservation-location" class="form-select">
+          <option value="sala-principal">Sala Principal</option>
+          <option value="sala-secundaria">Sala Secundaria</option>
+          <option value="zona-chill-out">Zona Chill-Out</option>
+        </select>
+      </div>
   
-            <div class="navMenu"> 
-              <i class="bi bi-list"></i>
-              <ul>
-                <li>
-                  <a href="about.html">Hola</a>
-                </li>
-                <li>
-                  <a href="menu.html">Ari</a>
-                </li>
-                <li>
-                  <a href="contact.html">como</a>
-                </li>
-                <li>
-                  <a href="faq.html">estás?</a>
-                </li>
-                <li>
-                  <i class="bi bi-x-lg"></i>
-                </li>
-              </ul>
-            </div>
-    
-            <div class="themeSearch">
-              <form class="d-flex align-items-center" id="search-form">
-                <input class="form-control ms-2" id="search-input" type="search" placeholder="Search" style="display: none; width: 0;">
-                <button class="btn" id="search-icon" type="button">
-                  <i class="bi bi-search" style="font-size: 1.5rem; color: var(--clr-light);"></i>
-                </button>
-              </form>
-              <button id="theme-toggle"><i class="bi bi-sun-fill" style="font-size: 1.5rem; color: var(--clr-light);"></i></button>
-            </div>
-          </nav>
-        </div>
-
-        <div id="titles">
-            <h1>WELCOME TO AROMA CAFÉ</h1>
-            <p>Your cozy spot for specialty coffee, freshly baked treats, and a warm community vibe.</p>
-            <a href="#funFacts" class="button-header">BROWSE WHAT WE OFFER</a>
+      <!-- Número de personas -->
+      <div class="mb-3">
+        <label for="reservation-people" class="form-label">Número de personas</label>
+        <input type="number" id="reservation-people" class="form-control" min="1" max="10" value="1" required>
+      </div>
+  
+      <!-- Selección de alcohol -->
+      <div class="mb-3">
+        <label for="alcohol-selection" class="form-label">Selecciona las botellas</label>
+        <div id="alcohol-selection" class="row">
+          <!-- Alcohol tipo 1 -->
+          <div class="col-md-4">
+            <label class="form-label">Vodka</label>
+            <input type="number" class="form-control alcohol-input" data-type="vodka" min="0" value="0">
           </div>
-      </header>
-  
-      <section id="funFacts">
-        <div class="container">
-          <div class="row">
-            <div class="col">
-              <i class="bi bi-cup-hot-fill" style="font-size: 2.5rem; color: var(--clr-light-2);"></i>
-              <div class="facts">
-                <h3>SPECIALTY COFFEE</h3>
-                <p>We proudly serve top-quality specialty coffee sourced from the best beans, paired with freshly baked pastries made daily.</p>
-              </div>
-            </div>
-            <div class="col">
-              <i class="bi bi-book" style="font-size: 2.5rem; color: var(--clr-light-2);"></i>
-              <div class="facts">
-                <h3>COMMUNITY</h3>
-                <p>Our coffee shop is a cozy haven for everyone. We host regular events like book readings, art displays, and coffee tasting sessions to bring the community together.</p>
-              </div>
-            </div>
-            <div class="col">
-              <i class="bi bi-wifi" style="font-size: 2.5rem; color: var(--clr-light-2);"></i>
-              <div class="facts">
-                <h3>FREE WIFI</h3>
-                <p>Enjoy complimentary high-speed WiFi while you sip on your favorite coffee. Perfect for working remotely, studying, or simply relaxing and catching up online.</p>
-              </div>
-            </div>
+          <!-- Alcohol tipo 2 -->
+          <div class="col-md-4">
+            <label class="form-label">Whisky</label>
+            <input type="number" class="form-control alcohol-input" data-type="whisky" min="0" value="0">
+          </div>
+          <!-- Alcohol tipo 3 -->
+          <div class="col-md-4">
+            <label class="form-label">Tequila</label>
+            <input type="number" class="form-control alcohol-input" data-type="tequila" min="0" value="0">
           </div>
         </div>
-      </section>
+      </div>
+  
+      <!-- Datos del cliente -->
+      <div class="mb-3">
+        <label for="client-name" class="form-label">Nombre</label>
+        <input type="text" id="client-name" class="form-control" required>
+      </div>
+      <div class="mb-3">
+        <label for="client-email" class="form-label">Correo electrónico</label>
+        <input type="email" id="client-email" class="form-control" required>
+      </div>
+      <div class="mb-3">
+        <label for="client-phone" class="form-label">Teléfono</label>
+        <input type="tel" id="client-phone" class="form-control" required>
+      </div>
+  
+      <!-- Botón enviar -->
+      <button type="submit" class="btn btn-primary w-100">Reservar ahora</button>
+    </form>
+  </div>
+  
 
       <!-- JAVASCRIPT BOOTSTRAP -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
